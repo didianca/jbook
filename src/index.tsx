@@ -35,16 +35,20 @@ const App = () => {
             }
         });
         setCode(result.outputFiles[0].text)
-        eval(result.outputFiles[0].text);
     };
+
+    const html = `
+        <script>
+            ${code}
+        </script>
+    `
 
     return <div>
         <textarea value={input} onChange={(event) => setInput(event.target.value)}/>
         <div>
             <button onClick={onClick}>Submit</button>
         </div>
-        <iframe src={"/test.html"}  sandbox=""/>
-        <pre>{code}</pre>
+        <iframe srcDoc={html} sandbox="allow-scripts" />
     </div>
 };
 
