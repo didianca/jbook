@@ -3,6 +3,7 @@ import React from "react";
 import CodeEditorComponent from "./code-editor.component";
 import Preview from "./preview.component";
 import bundle from "../bundler";
+import ResizableComponent from "./resizable.component";
 
 const CodeCellComponent = () => {
   const [input, setInput] = useState("");
@@ -14,20 +15,22 @@ const CodeCellComponent = () => {
   };
 
   return (
-    <div>
-      <CodeEditorComponent
-        initialValue={"// Start your code here; "}
-        onChange={(value) => setInput(value)}
-      />
-      <textarea
-        value={input}
-        onChange={(event) => setInput(event.target.value)}
-      />
+    <ResizableComponent direction="vertical">
       <div>
-        <button onClick={onClick}>Submit</button>
+        <CodeEditorComponent
+          initialValue={"// Start your code here; "}
+          onChange={(value) => setInput(value)}
+        />
+        <textarea
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+        />
+        <div>
+          <button onClick={onClick}>Submit</button>
+        </div>
+        <Preview code={code} />
       </div>
-      <Preview code={code} />
-    </div>
+    </ResizableComponent>
   );
 };
 
