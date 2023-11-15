@@ -1,3 +1,4 @@
+import "./resizable.component.css";
 import { ResizableBox } from "react-resizable";
 import React from "react";
 
@@ -11,7 +12,7 @@ const ResizableComponent: React.FunctionComponent<ResizableProps> = ({
   children,
 }) => {
   return (
-    <ResizableBox height={300} width={300}>
+    <ResizableBox height={300} width={300} resizeHandles={["s"]}>
       {children}
     </ResizableBox>
   );
