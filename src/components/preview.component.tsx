@@ -1,5 +1,5 @@
-import "./preview.component.css";
-import React, { useEffect, useRef } from "react";
+import './preview.component.css';
+import React, { useEffect, useRef } from 'react';
 
 interface PreviewProps {
   code: string;
@@ -7,8 +7,11 @@ interface PreviewProps {
 
 const iframeHtml = `
        <html lang="">
-            <head><title></title>
-            <style> html { background-color: white; }</style></head>
+            <head>
+                <title></title>
+                <style> html { background-color: white; }
+            </style>
+            </head>
             <body>
                 <div id="root"></div>
                 <script>
@@ -30,7 +33,7 @@ const Preview: React.FunctionComponent<PreviewProps> = ({ code }) => {
   const iframe = useRef<any>();
   useEffect(() => {
     iframe.current.srcdoc = iframeHtml;
-    iframe.current.contentWindow.postMessage(code, "*");
+    iframe.current.contentWindow.postMessage(code, '*');
   }, [code]);
   return (
     <div className="preview-wrapper">
