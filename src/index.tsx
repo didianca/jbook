@@ -1,7 +1,10 @@
 import 'bulmaswatch/superhero/bulmaswatch.min.css';
 import ReactDOM from 'react-dom/client';
-import React from 'react';
 import CodeCellComponent from './components/code-cell.component';
+
+const element = document.getElementById('root');
+
+const root = ReactDOM.createRoot(element!);
 
 const App = () => {
   return (
@@ -11,11 +14,4 @@ const App = () => {
   );
 };
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+root.render(<App />);

@@ -24,7 +24,7 @@ const CodeCell = () => {
       <div style={{ height: '100%', display: 'flex', flexDirection: 'row' }}>
         <ResizableComponent direction="horizontal">
           <CodeEditorComponent
-            initialValue="const a = 1;"
+            initialValue="// Start your code here"
             onChange={(value) => setInput(value)}
           />
         </ResizableComponent>
