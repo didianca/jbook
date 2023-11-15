@@ -35,18 +35,24 @@ const ResizableComponent: React.FunctionComponent<ResizableProps> = ({
     return () => window.removeEventListener('resize', listener);
   }, []);
 
-  // Handling ResizeObserver loop error. Will handle it in a good way in future if found something
+  // Intentionally masking ResizeObserver loop error. Will handle better if cause + solution is found
   useEffect(() => {
     const resizeErrorListener = (e: ErrorEvent) => {
-      //   prettier-ignore
-      if (e.message ==="ResizeObserver loop completed with undelivered notifications.") {
-        const resizeObserverErrDiv = document.getElementById("webpack-dev-server-client-overlay-div");
-        const resizeObserverErr = document.getElementById("webpack-dev-server-client-overlay");
+      if (
+        e.message ===
+        'ResizeObserver loop completed with undelivered notifications.'
+      ) {
+        const resizeObserverErrDiv = document.getElementById(
+          'webpack-dev-server-client-overlay-div'
+        );
+        const resizeObserverErr = document.getElementById(
+          'webpack-dev-server-client-overlay'
+        );
         if (resizeObserverErr) {
-          resizeObserverErr.setAttribute("style", "display: none");
+          resizeObserverErr.setAttribute('style', 'display: none');
         }
         if (resizeObserverErrDiv) {
-          resizeObserverErrDiv.setAttribute("style", "display: none");
+          resizeObserverErrDiv.setAttribute('style', 'display: none');
         }
       }
     };
