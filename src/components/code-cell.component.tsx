@@ -1,26 +1,37 @@
-import { useState } from 'react';
-import React from 'react';
+import { useState, useEffect } from 'react';
 import CodeEditorComponent from './code-editor.component';
-import Preview from './preview.component';
+import PreviewComponent from './preview.component';
+import bundle from '../bundler';
 import ResizableComponent from './resizable.component';
 
-const CodeCellComponent = () => {
-  const [input, setInput] = useState('');
+const CodeCell = () => {
   const [code, setCode] = useState('');
+  const [input, setInput] = useState('');
+
+  useEffect(() => {
+    const timer = setTimeout(async () => {
+      const output = await bundle(input);
+      setCode(output);
+    }, 750);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [input]);
 
   return (
     <ResizableComponent direction="vertical">
       <div style={{ height: '100%', display: 'flex', flexDirection: 'row' }}>
-        <ResizableComponent direction={'horizontal'}>
+        <ResizableComponent direction="horizontal">
           <CodeEditorComponent
-            initialValue={'// Start your code here; '}
+            initialValue="const a = 1;"
             onChange={(value) => setInput(value)}
           />
         </ResizableComponent>
-        <Preview code={code} />
+        <PreviewComponent code={code} />
       </div>
     </ResizableComponent>
   );
 };
 
-export default CodeCellComponent;
+export default CodeCell;

@@ -1,19 +1,21 @@
-import "./code-editor.component.css";
-import MonacoEditor, { EditorDidMount } from "@monaco-editor/react";
-import React from "react";
-import prettier from "prettier";
-import parser from "prettier/parser-babel";
-import { useRef } from "react";
+import './code-editor.component.css';
+import MonacoEditor, { EditorDidMount } from '@monaco-editor/react';
+import React from 'react';
+import prettier from 'prettier';
+import parser from 'prettier/parser-babel';
+import { useRef } from 'react';
 
 interface CodeEditorProps {
   initialValue: string;
   onChange(value: string): void;
 }
+
 const CodeEditorComponent: React.FunctionComponent<CodeEditorProps> = ({
-  initialValue,
   onChange,
+  initialValue,
 }) => {
   const editorRef = useRef<any>();
+
   const onEditorDidMount: EditorDidMount = (getValue, monacoEditor) => {
     editorRef.current = monacoEditor;
     monacoEditor.onDidChangeModelContent(() => {
@@ -22,16 +24,22 @@ const CodeEditorComponent: React.FunctionComponent<CodeEditorProps> = ({
     // change tab size to 2 in order to save horizontal space for a side by side view;
     monacoEditor.getModel()?.updateOptions({ tabSize: 2 });
   };
+
   const onFormatClick = () => {
+    // get current value from editor
     const unformatted = editorRef.current.getModel().getValue();
+
+    // format that value
     const formatted = prettier
       .format(unformatted, {
-        parser: "babel",
+        parser: 'babel',
         plugins: [parser],
         semi: true,
         singleQuote: true,
       })
-      .replace(/\n$/, "");
+      .replace(/\n$/, '');
+
+    // set the formatted value back in the editor
     editorRef.current.setValue(formatted);
   };
 
@@ -46,11 +54,11 @@ const CodeEditorComponent: React.FunctionComponent<CodeEditorProps> = ({
       <MonacoEditor
         editorDidMount={onEditorDidMount}
         value={initialValue} // initial value, gets overwritten by user input
-        language="javascript"
         theme="dark"
+        language="javascript"
         height="100%"
         options={{
-          wordWrap: "on",
+          wordWrap: 'on',
           minimap: { enabled: false },
           showUnused: false,
           folding: false,

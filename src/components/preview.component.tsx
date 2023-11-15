@@ -29,7 +29,7 @@ const iframeHtml = `
         </html>
     `;
 
-const Preview: React.FunctionComponent<PreviewProps> = ({ code }) => {
+const PreviewComponent: React.FunctionComponent<PreviewProps> = ({ code }) => {
   const iframe = useRef<any>();
   useEffect(() => {
     iframe.current.srcdoc = iframeHtml;
@@ -47,4 +47,4 @@ const Preview: React.FunctionComponent<PreviewProps> = ({ code }) => {
   );
 };
 
-export default Preview;
+export default PreviewComponent;
