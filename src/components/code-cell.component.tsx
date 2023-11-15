@@ -9,25 +9,15 @@ const CodeCellComponent = () => {
   const [input, setInput] = useState("");
   const [code, setCode] = useState("");
 
-  const onClick = async () => {
-    const output = await bundle(input);
-    setCode(output);
-  };
-
   return (
     <ResizableComponent direction="vertical">
-      <div>
-        <CodeEditorComponent
-          initialValue={"// Start your code here; "}
-          onChange={(value) => setInput(value)}
-        />
-        <textarea
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-        />
-        <div>
-          <button onClick={onClick}>Submit</button>
-        </div>
+      <div style={{ height: "100%", display: "flex", flexDirection: "row" }}>
+        <ResizableComponent direction={"horizontal"}>
+          <CodeEditorComponent
+            initialValue={"// Start your code here; "}
+            onChange={(value) => setInput(value)}
+          />
+        </ResizableComponent>
         <Preview code={code} />
       </div>
     </ResizableComponent>
