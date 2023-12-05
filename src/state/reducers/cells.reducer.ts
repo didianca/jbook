@@ -1,5 +1,6 @@
 import { Action } from '../actions';
 import { Cell } from '../cell';
+import { ActionType } from '../action-types';
 
 interface CellsState {
   loading: boolean;
@@ -18,7 +19,18 @@ const initialState: CellsState = {
 };
 
 const reducer = (state: CellsState, action: Action): CellsState => {
-  return state;
+  switch (action.type) {
+    case ActionType.UPDATE_CELL:
+      return state;
+    case ActionType.INSERT_CELL_BEFORE:
+      return state;
+    case ActionType.MOVE_CELL:
+      return state;
+    case ActionType.DELETE_CELL:
+      return state;
+    default:
+      return state;
+  }
 };
 
 export default reducer;
