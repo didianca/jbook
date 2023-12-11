@@ -17,7 +17,7 @@ const CellListComponent: React.FunctionComponent = () => {
   return (
     <div>
       {renderedCells}
-      <AddCellComponent nextCellId={null} />
+      <AddCellComponent forceVisible={cells.length === 0} nextCellId={null} />
     </div>
   );
 };
