@@ -1,4 +1,6 @@
+import './action-bar.component.css';
 import { useActionsHook } from '../hooks/use-actions.hook';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 interface ActionBarComponentProps {
   id: string;
@@ -9,10 +11,31 @@ const ActionBarComponent: React.FunctionComponent<ActionBarComponentProps> = ({
 }) => {
   const { moveCell, deleteCell } = useActionsHook();
   return (
-    <div>
-      <button onClick={() => moveCell(id, 'up')}>^</button>
-      <button onClick={() => moveCell(id, 'up')}>\/</button>
-      <button onClick={() => deleteCell(id)}>X</button>
+    <div className="action-bar">
+      <button
+        className="button is-primary is-small"
+        onClick={() => moveCell(id, 'up')}
+      >
+        <span className="icon">
+          <i className="fas fa-arrow-up" />
+        </span>
+      </button>
+      <button
+        className="button is-primary is-small"
+        onClick={() => moveCell(id, 'down')}
+      >
+        <span className="icon">
+          <i className="fas fa-arrow-down" />
+        </span>
+      </button>
+      <button
+        className="button is-primary is-small"
+        onClick={() => deleteCell(id)}
+      >
+        <span className="icon">
+          <i className="fas fa-times" />
+        </span>
+      </button>
     </div>
   );
 };

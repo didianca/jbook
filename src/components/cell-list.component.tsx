@@ -1,5 +1,6 @@
 import { useTypedSelectorHook } from '../hooks/use-typed-selector.hook';
 import CellListItemComponent from './cell-list-item.component';
+import AddCellComponent from './add-cell.component';
 
 const CellListComponent: React.FunctionComponent = () => {
   const cells = useTypedSelectorHook(({ cells: { order, data } }) =>
@@ -7,9 +8,17 @@ const CellListComponent: React.FunctionComponent = () => {
   );
 
   const renderedCells = cells.map((cell) => (
-    <CellListItemComponent key={cell.id} cell={cell} />
+    <>
+      <AddCellComponent nextCellId={cell.id} />
+      <CellListItemComponent key={cell.id} cell={cell} />
+    </>
   ));
-  return <div> {renderedCells} </div>;
+  return (
+    <div>
+      {renderedCells}
+      <AddCellComponent nextCellId={null} />
+    </div>
+  );
 };
 
 export default CellListComponent;
