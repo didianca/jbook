@@ -13,7 +13,7 @@ const CellListItemComponent: React.FunctionComponent<
   if (cell.type === 'code') {
     child = <CodeCellComponent cell={cell} />;
   } else {
-    child = <TextEditorComponent />;
+    child = <TextEditorComponent cell={cell} />;
   }
 
   return <div> {child} </div>;
