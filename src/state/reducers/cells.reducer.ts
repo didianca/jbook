@@ -2,7 +2,7 @@ import { Action } from '../actions';
 import { Cell } from '../cell';
 import { ActionType } from '../action-types';
 import { produce } from 'immer';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 interface CellsState {
   loading: boolean;
@@ -29,7 +29,7 @@ const reducer = produce(
         return state;
       case ActionType.INSERT_CELL_BEFORE:
         const cell: Cell = {
-          id: uuid(),
+          id: uuidv4(),
           content: '',
           type: action.payload.type,
         };
