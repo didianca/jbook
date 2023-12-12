@@ -10,13 +10,13 @@ const AddCellComponent: React.FunctionComponent<AddCellComponentProps> = ({
   forceVisible,
   nextCellId,
 }) => {
-  const { insertCellBefore } = useActionsHook();
+  const { insertCellAfter } = useActionsHook();
   return (
     <div className={`add-cell ${forceVisible && 'force-visible'}`}>
       <div className="add-buttons">
         <button
           className="button is-rounded is-primary is-small"
-          onClick={() => insertCellBefore(nextCellId, 'code')}
+          onClick={() => insertCellAfter(nextCellId, 'code')}
         >
           <span className="icon is-small">
             <i className="fas fa-plus" />
@@ -25,7 +25,7 @@ const AddCellComponent: React.FunctionComponent<AddCellComponentProps> = ({
         </button>
         <button
           className="button is-rounded is-primary is-small"
-          onClick={() => insertCellBefore(nextCellId, 'text')}
+          onClick={() => insertCellAfter(nextCellId, 'text')}
         >
           <span className="icon is-small">
             <i className="fas fa-plus" />

@@ -33,7 +33,7 @@ const CodeCellComponent: React.FunctionComponent<CodeCellComponentProps> = ({
     <ResizableComponent direction="vertical">
       <div
         style={{
-          height: 'calc(100%-8px)',
+          height: '100%',
           display: 'flex',
           flexDirection: 'row',
         }}
