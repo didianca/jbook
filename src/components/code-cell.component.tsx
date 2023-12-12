@@ -31,7 +31,13 @@ const CodeCellComponent: React.FunctionComponent<CodeCellComponentProps> = ({
 
   return (
     <ResizableComponent direction="vertical">
-      <div style={{ height: '100%', display: 'flex', flexDirection: 'row' }}>
+      <div
+        style={{
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'row',
+        }}
+      >
         <ResizableComponent direction="horizontal">
           <CodeEditorComponent
             initialValue={cell.content}
