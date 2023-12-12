@@ -8,11 +8,11 @@ interface AddCellComponentProps {
 const AddCellComponent: React.FunctionComponent<AddCellComponentProps> = ({
   nextCellId,
 }) => {
-  const { insertCellBefore } = useActionsHook();
+  const { insertCellAfter } = useActionsHook();
   return (
     <div>
-      <button onClick={() => insertCellBefore(nextCellId, 'code')}>Code</button>
-      <button onClick={() => insertCellBefore(nextCellId, 'text')}>Text</button>
+      <button onClick={() => insertCellAfter(nextCellId, 'code')}>Code</button>
+      <button onClick={() => insertCellAfter(nextCellId, 'text')}>Text</button>
     </div>
   );
 };
