@@ -22,12 +22,12 @@ const bundle = async (rawCode: string) => {
         global: 'window',
       },
     });
-    return { code: result.outputFiles[0].text, err: '' };
+    return { code: result.outputFiles[0].text, error: '' };
   } catch (err) {
     if (err instanceof Error) {
       return {
         code: '',
-        err: err.message,
+        error: err.message,
       };
     } else {
       throw err;
