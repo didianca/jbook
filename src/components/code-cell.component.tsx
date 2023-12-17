@@ -16,20 +16,37 @@ const CodeCellComponent: React.FunctionComponent<CodeCellComponentProps> = ({
 }) => {
   const { updateCell, createBundle } = useActionsHook();
   const bundle = useTypedSelectorHook((state) => state.bundles[cell.id]);
+  const cumulativeCode = useTypedSelectorHook((state) => {
+    const { data, order } = state.cells;
+
+    const orderedCells = order.map((id) => data[id]);
+
+    const cumulativeCode = [];
+
+    for (let orderedCell of orderedCells) {
+      if (orderedCell.type === 'code') {
+        cumulativeCode.push(orderedCell.content);
+      }
+      if (orderedCell.id === cell.id) {
+        break;
+      }
+    }
+    return cumulativeCode;
+  });
 
   useEffect(() => {
     if (!bundle) {
-      createBundle(cell.id, cell.content);
+      createBundle(cell.id, cumulativeCode.join('\n'));
       return;
     }
     const timer = setTimeout(async () => {
-      createBundle(cell.id, cell.content);
+      createBundle(cell.id, cumulativeCode.join('\n'));
     }, 1000);
 
     return () => {
       clearTimeout(timer);
     };
-  }, [cell.content, cell.id]);
+  }, [cumulativeCode.join('\n'), cell.id]);
 
   return (
     <ResizableComponent direction="vertical">
