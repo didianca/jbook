@@ -6,6 +6,7 @@ import ResizableComponent from './resizable.component';
 import { Cell } from '../state';
 import { useActionsHook } from '../hooks/use-actions.hook';
 import { useTypedSelectorHook } from '../hooks/use-typed-selector.hook';
+import { useCumulativeCode } from '../hooks/useCumulativeCode.hook';
 
 interface CodeCellComponentProps {
   cell: Cell;
@@ -16,37 +17,21 @@ const CodeCellComponent: React.FunctionComponent<CodeCellComponentProps> = ({
 }) => {
   const { updateCell, createBundle } = useActionsHook();
   const bundle = useTypedSelectorHook((state) => state.bundles[cell.id]);
-  const cumulativeCode = useTypedSelectorHook((state) => {
-    const { data, order } = state.cells;
-
-    const orderedCells = order.map((id) => data[id]);
-
-    const cumulativeCode = [];
-
-    for (let orderedCell of orderedCells) {
-      if (orderedCell.type === 'code') {
-        cumulativeCode.push(orderedCell.content);
-      }
-      if (orderedCell.id === cell.id) {
-        break;
-      }
-    }
-    return cumulativeCode;
-  });
+  const cumulativeCode = useCumulativeCode(cell.id);
 
   useEffect(() => {
     if (!bundle) {
-      createBundle(cell.id, cumulativeCode.join('\n'));
+      createBundle(cell.id, cumulativeCode);
       return;
     }
     const timer = setTimeout(async () => {
-      createBundle(cell.id, cumulativeCode.join('\n'));
+      createBundle(cell.id, cumulativeCode);
     }, 1000);
 
     return () => {
       clearTimeout(timer);
     };
-  }, [cumulativeCode.join('\n'), cell.id]);
+  }, [cumulativeCode, cell.id]);
 
   return (
     <ResizableComponent direction="vertical">
