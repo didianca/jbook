@@ -1,3 +1,4 @@
+import './code-cell.component.css';
 import { useEffect } from 'react';
 import CodeEditorComponent from './code-editor.component';
 import PreviewComponent from './preview.component';
@@ -17,6 +18,10 @@ const CodeCellComponent: React.FunctionComponent<CodeCellComponentProps> = ({
   const bundle = useTypedSelectorHook((state) => state.bundles[cell.id]);
 
   useEffect(() => {
+    if (!bundle) {
+      createBundle(cell.id, cell.content);
+      return;
+    }
     const timer = setTimeout(async () => {
       createBundle(cell.id, cell.content);
     }, 1000);
@@ -41,7 +46,15 @@ const CodeCellComponent: React.FunctionComponent<CodeCellComponentProps> = ({
             onChange={(value) => updateCell(cell.id, value)}
           />
         </ResizableComponent>
-        {bundle && <PreviewComponent code={bundle.code} error={bundle.error} />}
+        {!bundle || bundle.loading === true ? (
+          <div className="progress-cover">
+            <progress className="progress is-small is-primary" max="100">
+              Loading
+            </progress>
+          </div>
+        ) : (
+          <PreviewComponent code={bundle.code} error={bundle.error} />
+        )}
       </div>
     </ResizableComponent>
   );
