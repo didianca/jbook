@@ -1,4 +1,6 @@
-# JBook
+# [JBook](https://master.d1lzgr9p3n75e2.amplifyapp.com/)
+
+> The [App](https://master.d1lzgr9p3n75e2.amplifyapp.com/)
 
 > Still a WIP.
 
@@ -15,11 +17,9 @@ The app spins up a web page where multiple text or code editors can be initializ
 
 > Note: Use `--legacy-peer-deps` to  restore peerDependency installation behavior from NPM v4 through v6. Issue seems to stem from using react v 17+. See following stackoverflow [thread](https://stackoverflow.com/questions/66239691/what-does-npm-install-legacy-peer-deps-do-exactly-when-is-it-recommended-wh) for more info on the matter.
 
-<!-- Add more Documentation between these lines -->
 
 
-
-<!-- Add more Documentation between these lines -->
+<!-- Add more Documentation above this line -->
 
 ## Credits
 
