@@ -4,8 +4,8 @@ const NavBarComponent: React.FunctionComponent = () => {
       <div className="navbar-brand">
         <h1 className="navbar-item">JBook</h1>
         <a
-          className="navbar-item is-hidden-desktop"
-          href="https://github.com/didianca"
+          className="navbar-item"
+          href="https://github.com/didianca/jbook"
           target="_blank"
         >
           <span className="icon">
