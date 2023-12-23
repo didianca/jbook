@@ -1,7 +1,24 @@
 .app {
-    margin: 10px 5% 65vh;
+    margin: 10px 5% 5vh;
 }
 
 .react-draggable-transparent-selection .cell-list{
     margin-bottom: 100vh;
+}
+
+/* Tooltip text */
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    padding: 5px 0;
+    border-radius: 6px;
+    background-color: #073642;
+    color: #fff;
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltip-text {
+    visibility: visible;
 }
