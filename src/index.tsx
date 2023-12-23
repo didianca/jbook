@@ -21,6 +21,7 @@ const App = () => {
           <NavBarComponent />
           <TitleComponent />
           <CellListComponent />
+        <FooterComponent />
           <FooterComponent />
         </div>
       </PersistGate>
