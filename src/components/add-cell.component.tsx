@@ -21,7 +21,10 @@ const AddCellComponent: React.FunctionComponent<AddCellComponentProps> = ({
           <span className="icon is-small">
             <i className="fas fa-plus" />
           </span>
-          <span>Code</span>
+          <div className="tooltip">
+            Code
+            <span className="tooltip-text">Add new code cell</span>
+          </div>
         </button>
         <button
           className="button is-rounded is-primary is-small"
@@ -30,7 +33,10 @@ const AddCellComponent: React.FunctionComponent<AddCellComponentProps> = ({
           <span className="icon is-small">
             <i className="fas fa-plus" />
           </span>
-          <span>Text</span>
+          <div className="tooltip">
+            Text
+            <span className="tooltip-text">Add new text cell</span>
+          </div>
         </button>
       </div>
       <div className="divider" />
