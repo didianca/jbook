@@ -1,5 +1,5 @@
 ![Alt Text](./public/logo-png.png)
-# [Neditor](https://master.d1lzgr9p3n75e2.amplifyapp.com/)
+# [Neditor](https://master.d3opb0106jd55l.amplifyapp.com/)
 
 ---
 ## Introduction
@@ -9,9 +9,7 @@ Neditor is a versatile online sandbox playground designed for developers seeking
 - **Flexible** Structure: Arrange code cells and text cells in any order and quantity to suit your workflow.
 - **Persistence**: Your data is stored locally, ensuring privacy, and cannot be shared between users.
 - **Technologies Used**: Built with [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/docs/), [Redux](https://redux.js.org/), [redux-persist](https://www.npmjs.com/package/redux-persist), [monaco-editor/react](https://www.npmjs.com/package/@monaco-editor/react), [uiw/react-md-editor](https://www.npmjs.com/package/@uiw/react-md-editor) and [Bulmaswatch](https://jenil.github.io/bulmaswatch/).
-- **Deployment**: Automated and accelerated development lifecycle, ensuring consistent and reliable deployments.
-  - [AWS Amplify](https://docs.amplify.aws/javascript/how-amplify-works/)
-  - [AWS S3](https://docs.aws.amazon.com/s3/)
+- **Deployment**: Automated and accelerated development lifecycle, ensuring consistent and reliable deployments - [AWS Amplify](https://docs.amplify.aws/javascript/how-amplify-works/)
 ### Usage tips
 
   - For Markdown documentation style text editor, use the Add Text button 
