@@ -1,23 +1,41 @@
-# [JBook](https://master.d1lzgr9p3n75e2.amplifyapp.com/)
+![Alt Text](./public/logo-png.png)
+# [Neditor](https://master.d1lzgr9p3n75e2.amplifyapp.com/)
 
-> The [App](https://master.d1lzgr9p3n75e2.amplifyapp.com/)
+---
+## Introduction
+Neditor is a versatile online sandbox playground designed for developers seeking a quick and efficient way to experiment with JavaScript code. With code cells and text cells, users can easily write, run, and document their code snippets, creating a hassle-free environment for exploration.
 
-> Still a WIP.
+## Key Features
+- **Flexible** Structure: Arrange code cells and text cells in any order and quantity to suit your workflow.
+- **Persistence**: Your data is stored locally, ensuring privacy, and cannot be shared between users.
+- **Technologies Used**: Built with [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/docs/), [Redux](https://redux.js.org/), [redux-persist](https://www.npmjs.com/package/redux-persist), [monaco-editor/react](https://www.npmjs.com/package/@monaco-editor/react), [uiw/react-md-editor](https://www.npmjs.com/package/@uiw/react-md-editor) and [Bulmaswatch](https://jenil.github.io/bulmaswatch/).
+- **Deployment**: Automated and accelerated development lifecycle, ensuring consistent and reliable deployments.
+  - [AWS Amplify](https://docs.amplify.aws/javascript/how-amplify-works/)
+  - [AWS S3](https://docs.aws.amazon.com/s3/)
+### Usage tips
 
-## The tech
-Web application built using Typescript, React and Redux, deployed with AWS Amplify. 
+  - For Markdown documentation style text editor, use the Add Text button 
+  - For JavaScript sandbox code editor , use the Add Code top right corner of each individual cell
+  - For deleting a cell there is a cross button in the top right corner of each individual cell as well
+  - For previewing results of your code, there is a built-in "show()" function which allows you to log the results to the preview window
+  - If you'd like to resie your editors, use the dotted components on each cell to drag and resize as needed.
+  - Messy code? Don't worry! The Format button inside the code cell should take care of that for you. Just use it as needed!
 
-# Description:
-The app spins up a web page where multiple text or code editors can be initialized as needed. The text editors format Markdown for the purpose of note-taking (Documentation) whereas the code editors take any JS or JSX code and run it.
+## Design Principles
+Built on the single responsibility concept, Neditor leverages TypeScript's strict typing for enhanced code quality and maintainability. The interface is intentionally uncomplicated and user-friendly, providing a polished and seamless experience for developers of all levels.
 
+## Achievements
+As the creator of Neditor, this project has been instrumental in honing TypeScript skills and gaining a deeper understanding of React development.
 
-## AWS Amplify
-- [Initializing](https://docs.amplify.aws/javascript/tools/cli/start/set-up-cli/#configure-the-amplify-cli) a new project;
-- When you’re ready to add a feature, run `amplify add <category>`.
+## Contribution
+Feel free to contribute, report issues, or suggest improvements. Your feedback is valuable in making Neditor an even more powerful and user-friendly tool.
+
+## Developer guide
+1. Clone the repository
+2. Install dependencies using `npm install --legacy-peer-deps`;
+3. Run the application using `npm run start`;
 
 > Note: Use `--legacy-peer-deps` to  restore peerDependency installation behavior from NPM v4 through v6. Issue seems to stem from using react v 17+. See following stackoverflow [thread](https://stackoverflow.com/questions/66239691/what-does-npm-install-legacy-peer-deps-do-exactly-when-is-it-recommended-wh) for more info on the matter.
-
-
 
 <!-- Add more Documentation above this line -->
 
