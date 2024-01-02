@@ -8,9 +8,18 @@ Neditor is a versatile online sandbox playground designed for developers seeking
 ## Key Features
 - **Flexible** Structure: Arrange code cells and text cells in any order and quantity to suit your workflow.
 - **Persistence**: Your data is stored locally, ensuring privacy, and cannot be shared between users.
+- **Technologies Used**: Built with [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/docs/), [Redux](https://redux.js.org/), [redux-persist](https://www.npmjs.com/package/redux-persist), [monaco-editor/react](https://www.npmjs.com/package/@monaco-editor/react), [uiw/react-md-editor](https://www.npmjs.com/package/@uiw/react-md-editor) and [Bulmaswatch](https://jenil.github.io/bulmaswatch/).
 - **Deployment**: Automated and accelerated development lifecycle, ensuring consistent and reliable deployments.
   - [AWS Amplify](https://docs.amplify.aws/javascript/how-amplify-works/)
   - [AWS S3](https://docs.aws.amazon.com/s3/)
+### Usage tips
+
+  - For Markdown documentation style text editor, use the Add Text button 
+  - For JavaScript sandbox code editor , use the Add Code top right corner of each individual cell
+  - For deleting a cell there is a cross button in the top right corner of each individual cell as well
+  - For previewing results of your code, there is a built-in "show()" function which allows you to log the results to the preview window
+  - If you'd like to resie your editors, use the dotted components on each cell to drag and resize as needed.
+  - Messy code? Don't worry! The Format button inside the code cell should take care of that for you. Just use it as needed!
 
 ## Design Principles
 Built on the single responsibility concept, Neditor leverages TypeScript's strict typing for enhanced code quality and maintainability. The interface is intentionally uncomplicated and user-friendly, providing a polished and seamless experience for developers of all levels.
@@ -18,12 +27,10 @@ Built on the single responsibility concept, Neditor leverages TypeScript's stric
 ## Achievements
 As the creator of Neditor, this project has been instrumental in honing TypeScript skills and gaining a deeper understanding of React development.
 
-
 ## Contribution
 Feel free to contribute, report issues, or suggest improvements. Your feedback is valuable in making Neditor an even more powerful and user-friendly tool.
 
 ## Developer guide
-
 1. Clone the repository
 2. Install dependencies using `npm install --legacy-peer-deps`;
 3. Run the application using `npm run start`;
