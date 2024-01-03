@@ -3,7 +3,7 @@
 
 ---
 ## Introduction
-Neditor is a versatile online sandbox playground designed for developers seeking a quick and efficient way to experiment with JavaScript code. With code cells and text cells, users can easily write, run, and document their code snippets, creating a hassle-free environment for exploration.
+Neditor is a versatile online sandbox playground designed for developers seeking a quick and efficient way to experiment with JavaScript. With code cells and text cells, users can easily write, run, and document their code snippets, creating a hassle-free environment for exploration.
 
 ## Key Features
 - **Flexible** Structure: Arrange code cells and text cells in any order and quantity to suit your workflow.
